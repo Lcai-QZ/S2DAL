@@ -1,0 +1,48 @@
+{
+    # training settings
+    "epochs": 50,
+    "max_iter_EM": 2,
+    "print_freq": 5,
+    "resume": "None",
+    "delta": 0.03,  # step size for E-step 
+    "langevin_steps": 5,  # number of steps of langevin
+    "epsilon2": 1e-6,  ## default = 1e-6
+    "rho": 0.1, # TV regularized penalty for unlabled data defualt = 0.5
+    "tv_weight": [1.0, 1.0, 2.0],  # hyper-parameter gamma of paper
+    "gpu_id": [2],
+    "lr_D": 1e-4,             # Learning rate for the deraining network
+    "lr_GRain": 2e-4,         # Learning rate for the emission model
+    "lr_GState": 1e-3,        # Learning rate for the transition model
+    "weight_decay_D": 1e-4,   # Weight decay for the deraining network
+    "weight_decay_GRain": 0,  # Weight decay for the emission model
+    "weight_decay_GState": 0, # Weight decay for the transition model
+    "factor_lr": 0.5,         # decay factor for learning rate default=0.5
+    "patch_size": 128,        # patch size = 128
+    "model_dir": "models_save_allweather_randomly_shuffling",   ##
+    "log_dir": "logs_save",
+    "milestones": [10, 20, 30],  # Epochs to decay learning rate default: [30, 45]
+    "pretrain": 2,     # N umber of epochs to pretrain the generator default=5
+
+    # network settings
+    "latent_size": 64,        # default=64
+    "state_size": 128,       # default=128
+    "motion_size": 64,       # default=64
+    "feature_state": 128, 
+    "feature_rain_G": 64,    # number of feature for rain generator
+    "feature_derain_D": 32,  # number of feature for derain net
+    "n_resblocks": 8,        # residual blocks in derain net
+    "max_grad_norm_D": 1e4,  # grad norm threshold for derain net  
+    "truncate": 20,
+    "truncate_test": 6,
+
+    # dataset .mat file
+    "train_path": "/media/zyserver/data16t/cailei/data/weather/allweather/allweather_train_mat_128_shuffle_label_more/", # folder to save the training data of labeled synthetic data: *.mat  ###modified
+    "train_path_semi": "/media/zyserver/data16t/cailei/data/weather/allweather/allweather_train_mat_128_shuffle_label_semi_more/", # folder to save the training data of unlabeled real data: *.mat  ##modified
+    "raindrop_test_path": "/media/zyserver/data16t/cailei/data/weather/RainDrop/rain_drop_test/input", # testing images of raindrop data: *.png ###modified
+    "rainhaze_test_path": "/media/zyserver/data16t/cailei/data/weather/OutdoorRain/Test1/input",  # testing images of OutdoorRain data: *.png ###modified
+    "Snow100K-S_test_path": "/media/zyserver/data16t/cailei/data/weather/Snow100K/Snow100K-S/synthetic", # testing images of Snow100K-S data: *.jpg ###modified
+    "Snow100K-L_test_path": "/media/zyserver/data16t/cailei/data/weather/Snow100K/Snow100K-L/synthetic", # testing images of Snow100K-L data: *.jpg ###modified
+    "latent_dir_name": "/media/zyserver/data16t/cailei/data/weather/allweather/latent_eps6_rho05_tv112_allweather_patch128_text_guided_degration_more" , # floder to save the latent and state variable
+    # random seed
+    "seed": 1000
+}
