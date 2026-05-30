@@ -6,7 +6,7 @@
     "resume": "None",
     "delta": 0.03,  # step size for E-step 
     "langevin_steps": 5,  # number of steps of langevin
-    "epsilon2": 1e-6,  ## default = 1e-6
+    "epsilon": 1e-6,  ## default = 1e-6
     "rho": 0.1, # TV regularized penalty for unlabled data defualt = 0.5
     "tv_weight": [1.0, 1.0, 2.0],  # hyper-parameter gamma of paper
     "gpu_id": [2],
